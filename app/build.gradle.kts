@@ -72,5 +72,5 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0") // main library
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0") // converts json to string
     implementation("com.squareup.retrofit2:converter-gson:2.9.0") // converts json to kotlin
-
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }

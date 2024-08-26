@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             AirPollutionAppTheme {
                     AirScreen(
-                        state = WeatherState()
+                        state = WeatherState(),
+                        onRefresh = {}
                     )
                 }
             }

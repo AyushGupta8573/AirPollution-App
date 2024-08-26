@@ -27,13 +27,13 @@ class AirViewModel() : ViewModel() {
     val state = _state.asStateFlow()
 
     init {
-        getWeatherData()
+        getAirData()
     }
 
-    private fun getWeatherData() {
+    private fun getAirData() {
         viewModelScope.launch {
             try {
-                val result = WeatherApi.retrofitService.getWeather(
+                val result = WeatherApi.retrofitService.getAirPoll(
                     lat = 26.50,
                     lon = 80.80,
                     apiKey = "a7cd198c020bb86e19ee90789e199908"

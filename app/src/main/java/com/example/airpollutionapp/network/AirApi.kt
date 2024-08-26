@@ -12,9 +12,9 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-interface WeatherApiService {
-    @GET("coord")
-    suspend fun getWeather(
+interface AirApiService {
+    @GET("Air Pollution")
+    suspend fun getAirPoll(
         @Query("q") lat: Double,
         @Query("r") lon: Double,
         @Query("appid") apiKey: String,
@@ -22,7 +22,7 @@ interface WeatherApiService {
 }
 
 object WeatherApi {
-    val retrofitService: WeatherApiService by lazy {
-        retrofit.create(WeatherApiService::class.java)
+    val retrofitService: AirApiService by lazy {
+        retrofit.create(AirApiService::class.java)
     }
 }

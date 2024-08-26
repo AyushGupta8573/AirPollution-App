@@ -37,7 +37,8 @@ import com.example.airpollutionapp.network.Components
 @Composable
 fun AirScreen(
     modifier: Modifier = Modifier,
-    state: WeatherState
+    state: WeatherState,
+    onRefresh: () -> Unit,
 ) {
     var isOpen: Boolean by remember { mutableStateOf(false) }
     Column(
@@ -66,8 +67,6 @@ fun AirScreen(
 
         Spacer(modifier = modifier.padding(20.dp))
 
-
-
         Button(
             onClick = { isOpen = !isOpen },
             modifier = Modifier,
@@ -81,6 +80,7 @@ fun AirScreen(
         }
         if (isOpen) {
             Column {
+                Text(text = "${state.result.coord}")
                 Text(text = "${state.result.list}")
             }
         }
@@ -90,5 +90,6 @@ fun AirScreen(
 @Preview(showSystemUi = true)
 @Composable
 private fun AirScreenPreview() {
-    AirScreen(state = WeatherState())
+    AirScreen(state = WeatherState(),
+        onRefresh = {})
 }
