@@ -13,9 +13,10 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface WeatherApiService {
-    @GET("weather")
+    @GET("coord")
     suspend fun getWeather(
-        @Query("q") city: String,
+        @Query("q") lat: Double,
+        @Query("r") lon: Double,
         @Query("appid") apiKey: String,
     ): AirResponse
 }
@@ -25,15 +26,3 @@ object WeatherApi {
         retrofit.create(WeatherApiService::class.java)
     }
 }
-
-/*interface AirApi {
-      @Query("key") city: String,
-        @Query("q") apikey: String,
-    ): AirResponse
-}
-
-object AirApiService {
-    val retrofitService: AirApiService by lazy {
-        retrofit.create(AirApiService::class.java)
-    }
-}*/

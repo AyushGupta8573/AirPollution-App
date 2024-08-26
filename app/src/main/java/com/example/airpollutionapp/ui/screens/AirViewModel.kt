@@ -21,7 +21,7 @@ data class WeatherState(
     val error: String = "",
 )
 
-class WeatherViewModel() : ViewModel() {
+class AirViewModel() : ViewModel() {
 
     private val _state = MutableStateFlow(WeatherState())
     val state = _state.asStateFlow()
@@ -34,7 +34,8 @@ class WeatherViewModel() : ViewModel() {
         viewModelScope.launch {
             try {
                 val result = WeatherApi.retrofitService.getWeather(
-                    city = "Kanpur",
+                    lat = 26.50,
+                    lon = 80.80,
                     apiKey = "a7cd198c020bb86e19ee90789e199908"
                 )
                 _state.update { it.copy(result = result, status = Status.SUCCESS) }

@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.airpollutionapp.ui.screens.AirScreen
+import com.example.airpollutionapp.ui.screens.WeatherState
 import com.example.airpollutionapp.ui.theme.AirPollutionAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,10 +21,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AirPollutionAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AppNavigation(modifier = Modifier.padding(innerPadding))
+                    AirScreen(
+                        state = WeatherState()
+                    )
                 }
             }
         }
     }
-}
