@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.airpollutionapp.network.Components
@@ -59,7 +60,7 @@ fun AirScreen(
 
 
 
-        Button(onClick = {isOpen = true}) {
+        Button(onClick = {isOpen = !isOpen}) {
             Text(text = "Click Here")
         }
         if (isOpen) {
@@ -68,4 +69,10 @@ fun AirScreen(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun AirScreenPreview() {
+    AirScreen(state = WeatherState())
 }
